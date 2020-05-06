@@ -1,0 +1,19 @@
+{
+  "name": "farmacia-Front-End",
+  "version": "1.0.0",
+  "description": "Projeto que contera os diretorios do front-end",
+  "author": "Marcos Vinnicius Martins",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0",
+    "bootstrap-vue": "^2.0.0",
+    "bootstrap": "^4.1.3"
+  },
+  "devDependencies": {}
+}
