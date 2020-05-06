@@ -3,10 +3,10 @@
     <div>
       <logo />
       <h1 class="title">
-        farmacia-Front-End
+        Farmacia-Front-End
       </h1>
       <h2 class="subtitle">
-        Projeto que contera os diretorios do front-end
+        Projeto inicial
       </h2>
       <div class="links">
         <a
