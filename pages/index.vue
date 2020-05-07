@@ -3,7 +3,7 @@
     <div>
       <logo />
       <h1 class="title">
-        Farmacia-Front-End
+        Farmacia-Front-End (Teste)
       </h1>
       <h2 class="subtitle">
         Projeto inicial
