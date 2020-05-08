@@ -29,7 +29,7 @@ export default {
 
 .style {
   box-sizing: border-box;
-  width: 300px;
+  width: 250px;
   padding: 15px;
   padding-top: 20px;
   border: 2px solid #9c989e;
@@ -41,7 +41,7 @@ export default {
   background-position: center;
   background-size: cover;
   width: 100%;
-  height: 200px;
+  height: 120px;
 }
 </style>
 
