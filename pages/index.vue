@@ -75,7 +75,7 @@ export default {
               id: "4",
               title: "Buscopan",
               value: "20,00",
-              qtd: "",
+              qtd: "1",
               image:
                 "https://www.farmadelivery.com.br/media/catalog/product/cache/1/image/720x/9df78eab33525d08d6e5fb8d27136e95/4/6/4633-buscopan-composto-adulto-10mg-250mg-c-20-comprimidos.jpg"
             },
