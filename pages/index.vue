@@ -7,7 +7,16 @@
         </div>
       </b-col>
     </b-row>
-    
+
+<div class="colorContentBorder">
+    <b-row>
+      <b-col>
+        <div class="colorContent space">
+        <b-button variant="outline-secondary" to="/addDrug">Cadastrar novo remédio</b-button>
+        </div>
+      </b-col>
+    </b-row>
+
     <b-row>
       <b-col>
         <div class="styles colorContent">
@@ -23,18 +32,15 @@
         </div>
       </b-col>
     </b-row>
-
-    <b-row>
-        <b-col>
-          <b-button block variant="outline-secondary">Cadastrar novo produto</b-button>
-        </b-col>
-    </b-row>
+</div>
   </b-container>
 </template>
 
 <script>
 import Drug from "@/components/Drug";
 import axios from "axios";
+import { API_ROOT } from "../services/api-config";
+const serverUrl = API_ROOT;
 
 export default {
   components: {
@@ -51,13 +57,17 @@ export default {
     });
   },
 
-    mounted() {
-        axios.get('http://localhost:8080/drugs')
-        .then(response =>{
-            this.drugs = response.data;
-        })
-    }
-}
+  mounted() {
+    axios
+      .get(serverUrl + "/drugs")
+      .then(response => {
+        this.drugs = response.data;
+      })
+      .catch(error => {
+        errorCallback(error);
+      });
+  }
+};
 </script>
 
 <style scoped>
@@ -70,6 +80,8 @@ export default {
 
 .colorTitle {
   background-color: #8d9296;
+  padding-top: 5px ;
+  padding-bottom: 5px ;
 }
 
 .colorContent {
@@ -79,10 +91,20 @@ export default {
 }
 
 .styleTitle {
-  color: aliceblue;
+  color: #ffffff;
   font-size: 18pt;
   font-weight: 500;
   text-align: center;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
+
+.space {
+  padding-left: 10px;
+}
+
+.colorContentBorder {
+
+  border: solid 2px #8d9296;
+}
+
 </style>
