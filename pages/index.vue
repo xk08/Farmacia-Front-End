@@ -12,7 +12,7 @@
     <b-row>
       <b-col>
         <div class="colorContent space">
-        <b-button variant="outline-secondary" to="/addDrug">Cadastrar novo remédio</b-button>
+        <b-button variant="outline-success" to="/addDrug">Cadastrar novo remédio</b-button>
         </div>
       </b-col>
     </b-row>

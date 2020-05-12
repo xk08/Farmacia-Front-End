@@ -4,6 +4,17 @@
     <h1 class="fontTitle">Remédio: {{title}}</h1>
     <div class="fontDescription">Valor: R${{value}}</div>
     <div class="fontDescription">Quantidade: {{qtd}} unidades</div>
+
+    <b-row class="styles">
+  
+      <div class="space">
+        <b-button variant="outline-info" to="/addDrug">Editar</b-button>
+      </div>
+      
+      <div class="space">
+        <b-button variant="outline-danger" to="/addDrug">Excluir</b-button>
+      </div>
+    </b-row>
   </article>
 </template>
 
@@ -14,6 +25,13 @@ export default {
 </script>
 
 <style scoped>
+
+.styles {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
 
 .fontTitle {
   font-size: 18pt;
@@ -42,6 +60,11 @@ export default {
   background-size: cover;
   width: 100%;
   height: 120px;
+}
+
+.space {
+  padding-top: 10px;
+  padding-right: 10px;
 }
 </style>
 
