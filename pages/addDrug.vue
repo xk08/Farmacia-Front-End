@@ -16,37 +16,92 @@
       </b-col>
     </b-row>
 
+  <form>
     <div class="colorContent">
       <b-row>
         <b-col sm="6" class="inputText">
           <label for="input-live">Titulo ou nome</label>
-          <b-form-input id="input-default" placeholder="Exemplo: Nimesulida"></b-form-input>
+          <b-form-input id="title" v-model="title" placeholder="Exemplo: Nimesulida"></b-form-input>
         </b-col>
 
         <b-col class="inputText">
           <label for="input-live">Valor em Reais (R$)</label>
-          <b-form-input id="input-default" placeholder="Exemplo: 120,00 "></b-form-input>
+          <b-form-input id="value" v-model="value" placeholder="Exemplo: 120,00 "></b-form-input>
         </b-col>
       </b-row>
 
       <b-row class="my-4">
         <b-col sm="6" class="inputText">
           <label for="input-live">Quantidade em estoque (unidades)</label>
-          <b-form-input id="input-default" placeholder="Exemplo: 6"></b-form-input>
+          <b-form-input id="amount" v-model="amount" placeholder="Exemplo: 6"></b-form-input>
         </b-col>
 
         <b-col class="inputText">
           <label for="input-live">Imagem ou Figura (URL)</label>
-          <b-form-input id="input-default" placeholder="Exemplo: https://imagem-teste.jpg"></b-form-input>
+          <b-form-input id="image" v-model="image" placeholder="Exemplo: https://imagem-teste.jpg"></b-form-input>
         </b-col>
       </b-row>
 
       <b-col class="styles">
-        <b-button  variant="outline-success" to="/">Enviar</b-button>
+        <b-button  type=submit variant="outline-success" @click="submitForm" to="/">Enviar</b-button>
       </b-col>
     </div>
-  </b-container>
+  </form>
+</b-container>
 </template>
+
+<script>
+  import axios from 'axios';
+  import { API_ROOT } from "../services/api-config";
+  const serverUrl = API_ROOT;
+
+export default {
+
+  asyncData() {
+    return {
+      title: '',
+      value: '',
+      amount: '',
+      image:''
+    }
+  },
+       
+methods : {
+
+  //Método para adicionr um novo remédio
+  submitForm() {
+    axios.post(serverUrl + "/drugs", {
+      title: this.title,
+      value: this.value,
+      amount: this.amount,
+      image: this.image
+    })
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => {
+        console.log(err)
+        
+      })
+    },
+
+    //Método pra excluir um medicamento
+    //Fazendo FIXO, pra testar
+    async updateDrug(idDrug) {
+      let responseUp = await axios.put(serverUrl + "/drugs/" + idDrug, {
+        title: "AlbuminA",
+        value: "555,00",
+        amount: "800",
+        image:
+          "https://www.gsuplementos.com.br/upload/growth-layout-personalizado/produto/185/01-desk.png"
+      });
+      console.log(responseUp);
+      this.findDrugs();
+    }
+  }
+
+}
+</script>
 
 <style scoped>
 .styles {
