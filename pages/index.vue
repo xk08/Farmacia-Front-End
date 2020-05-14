@@ -29,7 +29,7 @@
 
               <b-row class="styles">
                 <div class="space">
-                  <b-button variant="outline-info" :to="'/addDrug/'+item.id">Editar</b-button>
+                  <b-button variant="outline-info" @click="updateDrug(item.id)">Editar</b-button>
                 </div>
 
                 <div class="space">

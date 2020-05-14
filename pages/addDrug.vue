@@ -43,7 +43,9 @@
       </b-row>
 
       <b-col class="styles">
-        <b-button  type=submit variant="outline-success" @click="submitForm" to="/">Enviar</b-button>
+        <nuxt-link to="/">
+          <b-button  type=submit variant="outline-success" @click="submitForm">Enviar</b-button>
+        </nuxt-link>
       </b-col>
     </div>
   </form>
@@ -75,9 +77,10 @@ methods : {
       value: this.value,
       amount: this.amount,
       image: this.image
-    })
+    },
+    )
       .then((res) => {
-        console.log(res)
+        redirect('/')
       })
       .catch((err) => {
         console.log(err)
@@ -96,8 +99,8 @@ methods : {
           "https://www.gsuplementos.com.br/upload/growth-layout-personalizado/produto/185/01-desk.png"
       });
       console.log(responseUp);
-      this.findDrugs();
-    }
+      // this.findDrugs();
+    },
   }
 
 }
